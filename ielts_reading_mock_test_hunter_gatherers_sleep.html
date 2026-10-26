@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms Lê Hằng English - IELTS Reading Mock Test</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'Quicksand', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            accent: '#6366f1',
+                            purple: '#8b5cf6',
+                            highlight: '#c084fc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            user-select: text;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Highlight Selection Style */
+        .user-highlight {
+            background-color: #a855f7 !important;
+            color: #ffffff !important;
+            border-radius: 3px;
+            padding: 0 2px;
+        }
+
+        /* Evidence Flash Animation */
+        @keyframes pulseHighlight {
+            0% { background-color: #fef08a; transform: scale(1); }
+            50% { background-color: #fde047; transform: scale(1.02); }
+            100% { background-color: transparent; transform: scale(1); }
+        }
+        .evidence-flash {
+            animation: pulseHighlight 2.5s cubic-bezier(0.4, 0, 0.6, 1);
+            border-left: 4px solid #eab308;
+            padding-left: 8px;
+            border-radius: 4px;
+        }
+
+        /* 3D Gamified Buttons */
+        .btn-3d {
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 0 0 rgba(0,0,0,0.15);
+        }
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 0 rgba(0,0,0,0.15);
+        }
+        .btn-3d:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
+        }
+
+        .btn-3d-green {
+            background-color: #22c55e;
+            border-bottom: 4px solid #15803d;
+        }
+        .btn-3d-green:active {
+            border-bottom-width: 0px;
+        }
+
+        .btn-3d-indigo {
+            background-color: #6366f1;
+            border-bottom: 4px solid #4338ca;
+        }
+        .btn-3d-indigo:active {
+            border-bottom-width: 0px;
+        }
+
+        .passage-text {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-slate-100">
+
+    <!-- TOP HEADER / CONTROL BAR -->
+    <header class="bg-white border-b border-slate-200 px-4 py-2 flex-none z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2">
+            
+            <!-- Branding & Teacher Info -->
+            <div class="flex items-center space-x-3 w-full md:w-auto justify-between md:justify-start">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md">
+                        LH
+                    </div>
+                    <div>
+                        <h1 class="text-base font-extrabold text-slate-800 leading-tight">Ms Lê Hằng English</h1>
+                        <p class="text-xs font-bold text-indigo-600 tracking-wide uppercase">IELTS READING MOCK TEST</p>
+                    </div>
+                </div>
+                <!-- Mobile Timer Trigger -->
+                <div class="md:hidden flex items-center bg-slate-100 px-3 py-1 rounded-lg">
+                    <i class="fa-regular fa-clock text-indigo-600 mr-2"></i>
+                    <span id="timer-display-mobile" class="font-mono font-bold text-slate-800">20:00</span>
+                </div>
+            </div>
+
+            <!-- Promotion Banner -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 px-4 py-1.5 rounded-full text-xs font-semibold text-slate-700 flex items-center gap-2 shadow-inner">
+                <span class="bg-indigo-600 text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase animate-pulse">Hotline</span>
+                <span>Đăng kí học tiếng Anh 1-12, IELTS vui lòng liên hệ <strong>Ms Lê Hằng - Zalo: 0584 965 348</strong></span>
+            </div>
+
+            <!-- Timer & Actions (Desktop) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Progress Indicator -->
+                <div class="flex flex-col items-end mr-2">
+                    <div class="text-xs font-bold text-slate-500">Tiến độ làm bài</div>
+                    <div class="w-32 bg-slate-200 h-2 rounded-full overflow-hidden mt-1">
+                        <div id="progress-bar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Clock Controls -->
+                <div class="flex items-center bg-slate-800 text-white px-4 py-1.5 rounded-xl shadow">
+                    <i class="fa-regular fa-clock text-amber-400 mr-2 text-base"></i>
+                    <span id="timer-display" class="font-mono text-lg font-extrabold tracking-wider text-amber-400">20:00</span>
+                    <button id="btn-timer-toggle" onclick="toggleTimer()" class="ml-3 bg-slate-700 hover:bg-slate-600 text-xs px-2.5 py-1 rounded-md transition font-bold text-slate-200">
+                        <i id="timer-icon" class="fa-solid fa-play mr-1"></i> <span id="timer-text">BẮT ĐẦU</span>
+                    </button>
+                </div>
+
+                <!-- Submit Button -->
+                <button onclick="submitTest()" class="btn-3d btn-3d-green text-white font-extrabold px-5 py-2 rounded-xl text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    NỘP BÀI
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT - SPLIT SCREEN -->
+    <main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+
+        <!-- LEFT PANEL: READING PASSAGE & GLOSSARY -->
+        <section id="left-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-4 md:p-6 bg-white border-r border-slate-200 space-y-6">
+            
+            <div class="border-b border-slate-200 pb-4">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Passage 1</span>
+                <h2 class="text-2xl font-black text-slate-800 mt-2">Sleep Study on Modern-Day Hunter-Gatherers Dispels Popular Notions</h2>
+                <p class="text-xs text-slate-500 mt-1 italic"><i class="fa-solid fa-circle-info mr-1"></i> Mẹo: Bôi đen từ vựng bất kỳ để highlight tự động bằng màu tím pastel nhạt.</p>
+            </div>
+
+            <!-- Paragraphs A to I -->
+            <div id="passage-container" class="space-y-6 passage-text text-slate-700">
+
+                <!-- Paragraph A -->
+                <div id="para-A" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[A]</strong>
+                        The sleep troubles common in modern life have long been blamed on our industrial society, from the city lights, long work hours and commutes, to caffeine and the Internet. Sleep researchers often look back on a time when humans were able to get more rest by sleeping and waking to the rhythms of the sun. It turns out that this may not be quite right. In fact, our ancestors may not have been getting the recommended eight hours of sleep, either.
+                    </p>
+                    <button onclick="toggleTranslation('trans-A')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-A" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa A:</strong> Rối loạn giấc ngủ phổ biến trong cuộc sống hiện đại từ lâu đã bị đổ lỗi cho xã hội công nghiệp, từ ánh sáng thành phố, giờ làm việc kéo dài và việc đi lại, cho đến caffeine và Internet. Các nhà nghiên cứu giấc ngủ thường nhìn về quá khứ khi con người có thể nghỉ ngơi nhiều hơn bằng cách ngủ và thức theo nhịp điệu mặt trời. Hóa ra điều này có thể không hoàn toàn đúng. Trên thực tế, tổ tiên của chúng ta cũng có thể không có được 8 giờ ngủ được khuyến nghị.
+                    </div>
+                </div>
+
+                <!-- Paragraph B -->
+                <div id="para-B" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[B]</strong>
+                        In a recent study, researchers traveled all over the world to examine sleep in some of the world's last remaining hunter-gatherer societies – the Hadza of Tanzania, the San of Namibia, and the Tsimane of Bolivia. Cut off from media, electricity and other distractions, these pre-industrial societies are thought to sleep the way humans did more than 10,000 years ago. Traveling to where they lived, often in humid, remote locations, researchers used medical devices to record the sleeping habits of 94 of these tribespeople and ended up collecting data representing 1,165 days.
+                    </p>
+                    <button onclick="toggleTranslation('trans-B')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-B" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa B:</strong> Trong một nghiên cứu gần đây, các nhà nghiên cứu đã đi khắp thế giới để kiểm tra giấc ngủ ở một số xã hội săn bắt hái lượm cuối cùng còn lại trên thế giới – người Hadza ở Tanzania, người San ở Namibia và người Tsimane ở Bolivia. Tách biệt khỏi truyền thông, điện và các xao nhãng khác, những xã hội tiền công nghiệp này được cho là ngủ theo cách mà con người đã làm hơn 10.000 năm trước. Đến tận nơi họ sống, thường ở những vùng hẻo lánh, ẩm ướt, các nhà nghiên cứu đã sử dụng các thiết bị y tế để ghi lại thói quen ngủ của 94 người bộ lạc và thu thập được dữ liệu đại diện cho 1.165 ngày.
+                    </div>
+                </div>
+
+                <!-- Paragraph C -->
+                <div id="para-C" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[C]</strong>
+                        They found very similar sleep patterns despite their geographic isolation. On average, all three groups sleep a little less than 6.5 hours a night, do not take naps, and don't go to sleep when it gets dark. Like many of us, the Hadza, San, and Tsimane spend more time in bed – from 6.9 to 8.5 hours – than they do actually sleeping. This adds up to a sleep efficiency that is very similar to today's industrial populations.
+                    </p>
+                    <button onclick="toggleTranslation('trans-C')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-C" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa C:</strong> Họ tìm thấy mô hình ngủ rất giống nhau mặc dù bị cách ly về địa lý. Trung bình, cả ba nhóm ngủ ít hơn 6,5 giờ một đêm một chút, không ngủ trưa và không đi ngủ ngay khi trời tối. Giống như nhiều người trong chúng ta, người Hadza, San và Tsimane dành nhiều thời gian trên giường hơn – từ 6,9 đến 8,5 giờ – so với thời gian họ thực sự ngủ. Điều này tạo nên hiệu suất giấc ngủ rất giống với dân số công nghiệp ngày nay.
+                    </div>
+                </div>
+
+                <!-- Paragraph D -->
+                <div id="para-D" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[D]</strong>
+                        According to Jerome Siegel, director of the University of California's Center for Sleep Research, evidence suggests sleep habits may not be environmental or cultural, but central to the physical makeup of humans. These findings question the millions of dollars that have been spent on research that tries to explain why some sleepers get only about six hours of sleep a night. Also, such findings question whether lack of sleep is a cause of obesity, mood disorders, and other physical and mental illnesses which have become so common in recent decades. Scientists have documented that people's energy often falls in the mid-afternoon. Some have suggested that it's because we've managed to suppress a natural desire for a nap.
+                    </p>
+                    <button onclick="toggleTranslation('trans-D')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-D" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa D:</strong> Theo Jerome Siegel, giám đốc Trung tâm Nghiên cứu Giấc ngủ thuộc Đại học California, bằng chứng cho thấy thói quen ngủ có thể không phải do môi trường hay văn hóa, mà đóng vai trò cốt lõi trong cấu tạo thể chất của con người. Những phát hiện này đặt dấu hỏi cho hàng triệu đô la đã chi cho nghiên cứu cố gắng giải thích lý do tại sao một số người chỉ ngủ khoảng 6 giờ một đêm. Ngoài ra, phát hiện này cũng đặt nghi vấn liệu thiếu ngủ có phải nguyên nhân gây béo phì, rối loạn tâm trạng và các bệnh thể chất/tâm thần khác vốn trở nên phổ biến gần đây. Các nhà khoa học đã ghi nhận rằng năng lượng con người thường sụt giảm vào giữa buổi chiều. Một số người cho rằng đó là do chúng ta kìm hãm khao khát ngủ trưa tự nhiên.
+                    </div>
+                </div>
+
+                <!-- Paragraph E -->
+                <div id="para-E" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[E]</strong>
+                        However, the new study provides evidence that this is unlikely, and that napping was actually rare in hunter-gatherer societies. The researchers estimated that naps may have occurred on up to 7 percent of winter days and 22 percent of summer days. They noted that their devices were only good at detecting longer naps, so it is possible that some of the study subjects took naps that were short, perhaps 15 minutes or less.
+                    </p>
+                    <button onclick="toggleTranslation('trans-E')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-E" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa E:</strong> Tuy nhiên, nghiên cứu mới cung cấp bằng chứng cho thấy điều này khó xảy ra và việc ngủ trưa thực sự hiếm gặp ở các xã hội săn bắt hái lượm. Các nhà nghiên cứu ước tính rằng giấc ngủ trưa có thể chỉ xảy ra vào khoảng 7% số ngày mùa đông và 22% số ngày mùa hè. Họ lưu ý rằng thiết bị của họ chỉ phát hiện tốt các giấc ngủ trưa dài hơn, vì vậy có thể một số đối tượng nghiên cứu đã chợp mắt ngắn, khoảng 15 phút hoặc ít hơn.
+                    </div>
+                </div>
+
+                <!-- Paragraph F -->
+                <div id="para-F" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[F]</strong>
+                        Another fascinating finding from the study had to do with the circadian rhythms, our daily activity cycles related to sunlight. Instead of going to sleep right at dusk, tribespeople were staying awake an average of between 2.5 and 4.4 hours after sunset. All three tribes had fires going, but the light itself was much lower than you might get from a light bulb. They did, however, have a tendency to wake up anywhere between an hour before and an hour after sunrise.
+                    </p>
+                    <button onclick="toggleTranslation('trans-F')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-F" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa F:</strong> Một phát hiện thú vị khác liên quan đến nhịp sinh học, chu kỳ hoạt động hàng ngày của chúng ta liên quan đến ánh sáng mặt trời. Thay vì đi ngủ ngay lúc chạng vạng, người dân bộ lạc vẫn thức trung bình từ 2,5 đến 4,4 giờ sau khi mặt trời lặn. Cả ba bộ lạc đều đốt lửa, nhưng bản thân ánh sáng thấp hơn nhiều so với ánh sáng từ bóng đèn. Tuy nhiên, họ có xu hướng thức dậy trong khoảng một giờ trước và một giờ sau khi mặt trời mọc.
+                    </div>
+                </div>
+
+                <!-- Paragraph G -->
+                <div id="para-G" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[G]</strong>
+                        Siegel and his co-authors investigated this further by looking into the significance of temperature. They found that it also played a big role, though it was somewhat less important than light in influencing sleep patterns. They wrote that "sleep in both the winter and summer usually occurred during the period of cooling and that waking times usually occurred near the height of the daily warming trend."
+                    </p>
+                    <button onclick="toggleTranslation('trans-G')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-G" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa G:</strong> Siegel và các đồng tác giả đã điều tra sâu hơn bằng cách xem xét tầm quan trọng của nhiệt độ. Họ phát hiện ra rằng nó cũng đóng một vai trò lớn, mặc dù ít quan trọng hơn một chút so với ánh sáng trong việc ảnh hưởng đến mô hình giấc ngủ. Họ viết rằng "giấc ngủ ở cả mùa đông và mùa hè thường diễn ra trong giai đoạn làm mát và thời gian thức dậy thường xảy ra gần đỉnh điểm của xu hướng ấm lên hàng ngày."
+                    </div>
+                </div>
+
+                <!-- Paragraph H -->
+                <div id="para-H" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[H]</strong>
+                        The tribespeople that were studied are different from people living in modern conditions in a number of respects. Importantly, almost none of them were troubled by sleeplessness. In interviews with the researchers conducted through interpreters, only 1.5 to 2.5 percent of the study subjects said they had severe difficulties sleeping more than once a year. This figure is far lower than the 10 to 30 percent recorded in many industrialized countries today. Siegel suggested that "mimicking aspects of the natural environment" may therefore help treat some sleep disorders.
+                    </p>
+                    <button onclick="toggleTranslation('trans-H')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-H" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa H:</strong> Những người bộ lạc được nghiên cứu khác với những người sống trong điều kiện hiện đại ở một số khía cạnh. Quan trọng là, hầu như không ai trong số họ bị làm phiền bởi chứng mất ngủ. Trong các cuộc phỏng vấn với các nhà nghiên cứu thông qua phiên dịch viên, chỉ có 1,5 đến 2,5% đối tượng nghiên cứu cho biết họ gặp khó khăn nghiêm trọng về giấc ngủ nhiều hơn một lần một năm. Con số này thấp hơn nhiều so với mức 10 đến 30% được ghi nhận ở nhiều nước công nghiệp hiện nay. Siegel gợi ý rằng "mô phỏng các khía cạnh của môi trường tự nhiên" do đó có thể giúp điều trị một số rối loạn giấc ngủ.
+                    </div>
+                </div>
+
+                <!-- Paragraph I -->
+                <div id="para-I" class="p-3 rounded-lg transition duration-300">
+                    <p>
+                        <strong class="text-indigo-600 font-extrabold mr-1">[I]</strong>
+                        The tribespeople are also much healthier. Not a single one is overweight, indicating their overall higher levels of physical fitness. They also tended to have healthier hearts. Thus comes a critical question. If we can't blame our health problems on our lack of sleep, could it be that the reason we feel so unrested is because of poor health?
+                    </p>
+                    <button onclick="toggleTranslation('trans-I')" class="mt-2 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-language"></i> Mở dịch đoạn này 🌟
+                    </button>
+                    <div id="trans-I" class="hidden mt-2 p-3 bg-slate-50 border-l-4 border-indigo-400 text-xs text-slate-600 rounded-r-lg leading-relaxed">
+                        <strong>Dịch nghĩa I:</strong> Người dân bộ lạc cũng khỏe mạnh hơn nhiều. Không một ai bị thừa cân, điều này cho thấy mức độ thể lực tổng thể cao hơn của họ. Họ cũng có xu hướng có trái tim khỏe mạnh hơn. Do đó một câu hỏi quan trọng đặt ra: Nếu chúng ta không thể đổ lỗi cho các vấn đề sức khỏe của mình là do thiếu ngủ, liệu lý do khiến chúng ta cảm thấy không được nghỉ ngơi đầy đủ có phải là do sức khỏe kém?
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GLOSSARY SECTION -->
+            <div class="mt-10 pt-6 border-t border-slate-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-extrabold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+                        GLOSSARY (Bảng Từ Vựng B2-C2 Học Thuật)
+                    </h3>
+                    <span class="text-xs bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-md font-bold">50+ Từ vựng</span>
+                </div>
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm max-h-96">
+                    <table class="w-full text-xs text-left text-slate-600">
+                        <thead class="text-xs text-slate-700 uppercase bg-slate-100 sticky top-0 font-bold border-b border-slate-200">
+                            <tr>
+                                <th scope="col" class="px-3 py-2.5">Từ vựng (Vocabulary)</th>
+                                <th scope="col" class="px-2 py-2.5">Loại từ</th>
+                                <th scope="col" class="px-3 py-2.5">Nghĩa tiếng Việt</th>
+                                <th scope="col" class="px-3 py-2.5">Synonym / Đồng nghĩa bài thi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="glossary-tbody" class="divide-y divide-slate-100 bg-white font-medium">
+                            <!-- Populated dynamically via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RIGHT PANEL: EXERCISES & EXPLANATIONS -->
+        <section id="right-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-4 md:p-6 bg-slate-50 space-y-8">
+            
+            <!-- Instructions Banner -->
+            <div class="bg-indigo-600 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                <div>
+                    <h2 class="font-extrabold text-lg">PRACTICE EXERCISES</h2>
+                    <p class="text-xs text-indigo-100">Trả lời câu hỏi bên dưới. Nhấn "Check" để xem giải thích chi tiết ngay lập tức!</p>
+                </div>
+                <div class="text-2xl font-black opacity-30">13 Qs</div>
+            </div>
+
+            <!-- SECTION 1: TRUE / FALSE / NOT GIVEN (Q1-Q4) -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Questions 1–4</span>
+                    <h3 class="text-base font-extrabold text-slate-800">TRUE / FALSE / NOT GIVEN</h3>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Choose <strong>TRUE</strong> if statement agrees with information, <strong>FALSE</strong> if contradicts, or <strong>NOT GIVEN</strong> if no information.
+                    </p>
+                </div>
+
+                <!-- Q1 -->
+                <div class="q-card p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3" id="card-q1">
+                    <div class="flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white font-extrabold flex items-center justify-center text-xs flex-shrink-0">1</span>
+                        <p class="text-sm font-bold text-slate-800 pt-0.5">
+                            Scientists studied hunter-gatherer societies because their sleep patterns are assumed to be similar to those of humans more than 10,000 years ago.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 pl-10">
+                        <select id="q1-input" class="bg-white border-2 border-slate-300 text-slate-800 text-xs font-bold rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 min-w-[150px]">
+                            <option value="">-- Chọn đáp án --</option>
+                            <option value="TRUE">TRUE</option>
+                            <option value="FALSE">FALSE</option>
+                            <option value="NOT GIVEN">NOT GIVEN</option>
+                        </select>
+                        <button onclick="checkSingleQuestion(1)" class="btn-3d btn-3d-indigo text-white text-xs font-bold px-3 py-2 rounded-xl">Check</button>
+                    </div>
+                    <div id="exp-q1" class="hidden pl-10 pt-2 border-t border-slate-200 text-xs space-y-2"></div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="q-card p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3" id="card-q2">
+                    <div class="flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white font-extrabold flex items-center justify-center text-xs flex-shrink-0">2</span>
+                        <p class="text-sm font-bold text-slate-800 pt-0.5">
+                            The medical devices used in the research were specially designed for humid conditions.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 pl-10">
+                        <select id="q2-input" class="bg-white border-2 border-slate-300 text-slate-800 text-xs font-bold rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 min-w-[150px]">
+                            <option value="">-- Chọn đáp án --</option>
+                            <option value="TRUE">TRUE</option>
+                            <option value="FALSE">FALSE</option>
+                            <option value="NOT GIVEN">NOT GIVEN</option>
+                        </select>
+                        <button onclick="checkSingleQuestion(2)" class="btn-3d btn-3d-indigo text-white text-xs font-bold px-3 py-2 rounded-xl">Check</button>
+                    </div>
+                    <div id="exp-q2" class="hidden pl-10 pt-2 border-t border-slate-200 text-xs space-y-2"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="q-card p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3" id="card-q3">
+                    <div class="flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white font-extrabold flex items-center justify-center text-xs flex-shrink-0">3</span>
+                        <p class="text-sm font-bold text-slate-800 pt-0.5">
+                            Researchers found that tribespeople stayed longer in bed than inhabitants of industrialised regions.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 pl-10">
+                        <select id="q3-input" class="bg-white border-2 border-slate-300 text-slate-800 text-xs font-bold rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 min-w-[150px]">
+                            <option value="">-- Chọn đáp án --</option>
+                            <option value="TRUE">TRUE</option>
+                            <option value="FALSE">FALSE</option>
+                            <option value="NOT GIVEN">NOT GIVEN</option>
+                        </select>
+                        <button onclick="checkSingleQuestion(3)" class="btn-3d btn-3d-indigo text-white text-xs font-bold px-3 py-2 rounded-xl">Check</button>
+                    </div>
+                    <div id="exp-q3" class="hidden pl-10 pt-2 border-t border-slate-200 text-xs space-y-2"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="q-card p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-3" id="card-q4">
+                    <div class="flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white font-extrabold flex items-center justify-center text-xs flex-shrink-0">4</span>
+                        <p class="text-sm font-bold text-slate-800 pt-0.5">
+                            Jerome Siegel believes that environment and culture have little effect on sleep patterns.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 pl-10">
+                        <select id="q4-input" class="bg-white border-2 border-slate-300 text-slate-800 text-xs font-bold rounded-xl focus:ring-indigo-500 focus:border-indigo-500 p-2.5 min-w-[150px]">
+                            <option value="">-- Chọn đáp án --</option>
+                            <option value="TRUE">TRUE</option>
+                            <option value="FALSE">FALSE</option>
+                            <option value="NOT GIVEN">NOT GIVEN</option>
+                        </select>
+                        <button onclick="checkSingleQuestion(4)" class="btn-3d btn-3d-indigo text-white text-xs font-bold px-3 py-2 rounded-xl">Check</button>
+                    </div>
+                    <div id="exp-q4" class="hidden pl-10 pt-2 border-t border-slate-200 text-xs space-y-2"></div>
+                </div>
+
+            </div>
+
+            <!-- SECTION 2: FILL IN THE BLANKS (Q5-Q13) -->
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                <div class="border-b border-slate-100 pb-3">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Questions 5–13</span>
+                    <h3 class="text-base font-extrabold text-slate-800">COMPLETE THE NOTES BELOW</h3>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Write <strong>ONE WORD ONLY</strong> from the passage for each answer.
+                    </p>
+                </div>
+
+                <!-- Note Summary Box -->
+                <div class="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-5 space-y-6">
+                    <h4 class="font-extrabold text-amber-900 text-center uppercase tracking-wide text-xs border-b border-amber-200/60 pb-2">
+                        New Evidence on Sleep Patterns
+                    </h4>
+
+                    <!-- Subgroup 1 -->
+                    <div class="space-y-3">
+                        <h5 class="font-bold text-xs text-indigo-700 flex items-center gap-1.5 uppercase">
+                            <i class="fa-solid fa-moon"></i> New ideas about napping
+                        </h5>
+                        
+                        <!-- Q5 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q5">
+                            <div>
+                                • scientists have recorded an afternoon drop in 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">5.</span>
+                                    <input type="text" id="q5-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(5)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q5" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q6">
+                            <div>
+                                • studies of hunter-gatherer societies show that napping was rare and occurred more often during the 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">6.</span>
+                                    <input type="text" id="q6-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(6)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q6" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q7">
+                            <div>
+                                • the devices may not have detected 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">7.</span>
+                                    <input type="text" id="q7-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span> naps
+                                <button onclick="checkSingleQuestion(7)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q7" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Subgroup 2 -->
+                    <div class="space-y-3">
+                        <h5 class="font-bold text-xs text-indigo-700 flex items-center gap-1.5 uppercase">
+                            <i class="fa-solid fa-sun"></i> Daily activity cycles
+                        </h5>
+                        
+                        <!-- Q8 & Q9 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q8">
+                            <div>
+                                • the tribespeople went to sleep several hours after sunset even with 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">8.</span>
+                                    <input type="text" id="q8-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(8)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q8" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q9">
+                            <div>
+                                • there was little light; tribespeople usually woke up around 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">9.</span>
+                                    <input type="text" id="q9-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(9)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q9" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <!-- Q10 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q10">
+                            <div>
+                                • scientists found that 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">10.</span>
+                                    <input type="text" id="q10-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span> had almost as much influence on sleep patterns as light
+                                <button onclick="checkSingleQuestion(10)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q10" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Subgroup 3 -->
+                    <div class="space-y-3">
+                        <h5 class="font-bold text-xs text-indigo-700 flex items-center gap-1.5 uppercase">
+                            <i class="fa-solid fa-users"></i> Differences between tribespeople and people in industrialised regions
+                        </h5>
+                        
+                        <!-- Q11 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q11">
+                            <div>
+                                • 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">11.</span>
+                                    <input type="text" id="q11-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-32 uppercase">
+                                </span> is something that very few of the tribespeople suffered from
+                                <button onclick="checkSingleQuestion(11)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q11" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <!-- Q12 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q12">
+                            <div>
+                                • the environment of tribespeople may have been more suitable for sleep<br>
+                                • tribespeople had better fitness than industrialised populations and were not 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">12.</span>
+                                    <input type="text" id="q12-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(12)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q12" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+
+                        <!-- Q13 -->
+                        <div class="q-card text-xs text-slate-700 leading-relaxed bg-white p-3 rounded-xl border border-slate-200 space-y-2" id="card-q13">
+                            <div>
+                                • tribespeople also had stronger 
+                                <span class="inline-flex items-center gap-1 mx-1">
+                                    <span class="font-bold text-indigo-600">13.</span>
+                                    <input type="text" id="q13-input" placeholder="nhập từ..." class="border-2 border-slate-300 rounded-lg px-2 py-1 text-xs font-bold focus:ring-indigo-500 focus:border-indigo-500 w-28 uppercase">
+                                </span>
+                                <button onclick="checkSingleQuestion(13)" class="btn-3d btn-3d-indigo text-white text-[10px] font-bold px-2 py-1 rounded-lg ml-1">Check</button>
+                            </div>
+                            <div id="exp-q13" class="hidden pt-2 border-t border-slate-100 text-xs space-y-1"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Mobile Submit -->
+            <div class="md:hidden pb-10">
+                <button onclick="submitTest()" class="w-full btn-3d btn-3d-green text-white font-black py-3 rounded-2xl text-base shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> NỘP BÀI THI TỔNG KẾT
+                </button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- SCORE SUMMARY MODAL -->
+    <div id="score-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 md:p-8 space-y-6 shadow-2xl border border-slate-100 relative transform transition-all animate-bounce-in">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="text-center space-y-2">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 text-indigo-600 text-3xl mb-2">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="text-2xl font-black text-slate-800">KẾT QUẢ BÀI THI</h3>
+                <p class="text-xs text-slate-500">IELTS Reading Mock Test - Hunter-Gatherers Sleep</p>
+            </div>
+
+            <!-- Score Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-2xl text-center">
+                    <div class="text-xs font-bold text-indigo-600 uppercase">Số câu đúng</div>
+                    <div id="modal-score-text" class="text-3xl font-black text-indigo-700 mt-1">0 / 13</div>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl text-center">
+                    <div class="text-xs font-bold text-emerald-600 uppercase">IELTS Band dự kiến</div>
+                    <div id="modal-band-text" class="text-3xl font-black text-emerald-700 mt-1">0.0</div>
+                </div>
+            </div>
+
+            <!-- Teacher Feedback -->
+            <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl space-y-1">
+                <div class="text-xs font-extrabold text-amber-800 uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-comment-dots text-amber-600"></i> Nhận xét từ Ms Lê Hằng:
+                </div>
+                <p id="modal-feedback" class="text-xs text-slate-700 font-semibold leading-relaxed">
+                    Bạn đã rất cố gắng! Hãy tiếp tục luyện tập để đạt band điểm mơ ước nhé.
+                </p>
+            </div>
+
+            <!-- Band Chart Reference -->
+            <div class="text-xs text-slate-500 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div class="font-bold text-slate-700 mb-1">Thang quy đổi Band điểm (Academic Reading):</div>
+                <div class="grid grid-cols-2 gap-x-2 gap-y-0.5 text-[11px]">
+                    <div>13 câu: <strong>Band 4.5+</strong></div>
+                    <div>10-12 câu: <strong>Band 4.0</strong></div>
+                    <div>7-9 câu: <strong>Band 3.5</strong></div>
+                    <div>5-6 câu: <strong>Band 3.0</strong></div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex gap-3">
+                <button onclick="closeModal()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 rounded-xl text-xs transition">
+                    Xem lại đáp án & Giải thích
+                </button>
+                <button onclick="location.reload()" class="flex-1 btn-3d btn-3d-indigo text-white font-bold py-3 rounded-xl text-xs transition">
+                    Làm lại bài thi 🔄
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================================================
+           1. DATA STRUCTURE: QUESTIONS & EXPLANATIONS
+           ========================================================================== */
+        const questionsData = {
+            1: {
+                correct: "TRUE",
+                paraId: "para-B",
+                evidence: "Cut off from media, electricity and other distractions, these pre-industrial societies are thought to sleep the way humans did more than 10,000 years ago.",
+                trans: "Tách biệt khỏi truyền thông, điện và các xao nhãng khác, những xã hội tiền công nghiệp này được cho là ngủ theo cách mà con người đã làm hơn 10.000 năm trước.",
+                synonyms: "scientists studied = researchers examine | sleep patterns are assumed to be similar = sleep the way humans did"
+            },
+            2: {
+                correct: "NOT GIVEN",
+                paraId: "para-B",
+                evidence: "Traveling to where they lived, often in humid, remote locations, researchers used medical devices to record the sleeping habits...",
+                trans: "Đoạn văn có đề cập các nhà nghiên cứu tới nơi có khí hậu ẩm ướt (humid) và dùng thiết bị y tế (medical devices), nhưng KHÔNG đề cập thiết bị có được thiết kế đặc biệt cho điều kiện ẩm ướt hay không.",
+                synonyms: "humid conditions (có đề cập) | specially designed (không được đề cập)"
+            },
+            3: {
+                correct: "FALSE",
+                paraId: "para-C",
+                evidence: "This adds up to a sleep efficiency that is very similar to today's industrial populations.",
+                trans: "Người dân bộ lạc dành từ 6.9 đến 8.5 giờ trên giường. Điều này tạo ra hiệu suất giấc ngủ 'rất giống' (very similar) với người ở các vùng công nghiệp hiện đại, KHÔNG PHẢI ở trên giường lâu hơn (longer).",
+                synonyms: "stayed longer = spend more time (Trái ngược với 'very similar')"
+            },
+            4: {
+                correct: "TRUE",
+                paraId: "para-D",
+                evidence: "According to Jerome Siegel... evidence suggests sleep habits may not be environmental or cultural, but central to the physical makeup of humans.",
+                trans: "Theo Jerome Siegel, bằng chứng cho thấy thói quen ngủ có thể KHÔNG PHẢI do môi trường hay văn hóa, mà là yếu tố cốt lõi thuộc về cấu tạo thể chất con người.",
+                synonyms: "have little effect on = may not be environmental or cultural"
+            },
+            5: {
+                correct: ["ENERGY"],
+                paraId: "para-D",
+                evidence: "Scientists have documented that people's energy often falls in the mid-afternoon.",
+                trans: "Các nhà khoa học đã ghi nhận rằng năng lượng của con người thường sụt giảm vào giữa buổi chiều.",
+                synonyms: "recorded = documented | drop = falls | mid-afternoon = afternoon"
+            },
+            6: {
+                correct: ["SUMMER"],
+                paraId: "para-E",
+                evidence: "The researchers estimated that naps may have occurred on up to 7 percent of winter days and 22 percent of summer days.",
+                trans: "Các nhà nghiên cứu ước tính rằng việc ngủ trưa chỉ xảy ra vào 7% số ngày mùa đông và 22% số ngày mùa hè (nhiều hơn).",
+                synonyms: "occurred more often = 22 percent vs 7 percent"
+            },
+            7: {
+                correct: ["SHORT"],
+                paraId: "para-E",
+                evidence: "They noted that their devices were only good at detecting longer naps, so it is possible that some of the study subjects took naps that were short...",
+                trans: "Họ lưu ý rằng các thiết bị chỉ phát hiện tốt các giấc ngủ dài, do đó có thể thiết bị đã không phát hiện được các giấc ngủ ngắn.",
+                synonyms: "may not have detected = only good at detecting longer naps (missed short ones)"
+            },
+            8: {
+                correct: ["FIRES"],
+                paraId: "para-F",
+                evidence: "All three tribes had fires going, but the light itself was much lower than you might get from a light bulb.",
+                trans: "Tất cả ba bộ lạc đều đốt lửa, nhưng ánh sáng thấp hơn nhiều so với bóng đèn.",
+                synonyms: "several hours after sunset = 2.5 and 4.4 hours after sunset"
+            },
+            9: {
+                correct: ["SUNRISE"],
+                paraId: "para-F",
+                evidence: "They did, however, have a tendency to wake up anywhere between an hour before and an hour after sunrise.",
+                trans: "Họ có xu hướng thức dậy trong khoảng 1 giờ trước và 1 giờ sau khi mặt trời mọc (sunrise).",
+                synonyms: "woke up = wake up | around = anywhere between an hour before and after"
+            },
+            10: {
+                correct: ["TEMPERATURE"],
+                paraId: "para-G",
+                evidence: "Siegel and his co-authors investigated this further by looking into the significance of temperature. They found that it also played a big role...",
+                trans: "Siegel và đồng tác giả nghiên cứu thêm về tầm quan trọng của nhiệt độ. Họ thấy nó đóng vai trò lớn (gần như tương đương ánh sáng).",
+                synonyms: "almost as much influence = played a big role, somewhat less important than light"
+            },
+            11: {
+                correct: ["SLEEPLESSNESS"],
+                paraId: "para-H",
+                evidence: "Importantly, almost none of them were troubled by sleeplessness.",
+                trans: "Quan trọng là hầu như không ai trong số họ bị phiền ngoái bởi chứng mất ngủ.",
+                synonyms: "very few = almost none | suffered from = troubled by"
+            },
+            12: {
+                correct: ["OVERWEIGHT"],
+                paraId: "para-I",
+                evidence: "Not a single one is overweight, indicating their overall higher levels of physical fitness.",
+                trans: "Không một ai bị thừa cân, cho thấy thể lực cao hơn của họ.",
+                synonyms: "better fitness = higher levels of physical fitness | not = not a single one"
+            },
+            13: {
+                correct: ["HEARTS"],
+                paraId: "para-I",
+                evidence: "They also tended to have healthier hearts.",
+                trans: "Họ cũng có xu hướng có trái tim khỏe mạnh hơn.",
+                synonyms: "stronger / healthier hearts"
+            }
+        };
+
+        /* Glossary Data (50+ B2-C2 Academic Words) */
+        const glossaryData = [
+            { word: "Hunter-gatherer", pos: "n", meaning: "Xã hội săn bắt hái lượm", syn: "Pre-industrial society" },
+            { word: "Dispel", pos: "v", meaning: "Xua tan, loại bỏ (quan niệm)", syn: "Dismiss, eliminate" },
+            { word: "Notions", pos: "n", meaning: "Quan niệm, ý niệm", syn: "Beliefs, ideas" },
+            { word: "Commute", pos: "n/v", meaning: "Quãng đường/việc đi lại làm việc", syn: "Travel to work" },
+            { word: "Ancestor", pos: "n", meaning: "Tổ tiên", syn: "Forefather, predecessor" },
+            { word: "Distraction", pos: "n", meaning: "Sự làm xao nhãng", syn: "Diversion, disturbance" },
+            { word: "Pre-industrial", pos: "adj", meaning: "Tiền công nghiệp", syn: "Traditional, primitive" },
+            { word: "Medical device", pos: "n", meaning: "Thiết bị y tế", syn: "Monitoring tool" },
+            { word: "Geographic isolation", pos: "np", meaning: "Sự cách ly địa lý", syn: "Remote location" },
+            { word: "Efficiency", pos: "n", meaning: "Hiệu suất", syn: "Productivity, ratio" },
+            { word: "Physical makeup", pos: "np", meaning: "Cấu tạo thể chất", syn: "Biological constitution" },
+            { word: "Obesity", pos: "n", meaning: "Bệnh béo phì", syn: "Overweight condition" },
+            { word: "Mood disorder", pos: "np", meaning: "Rối loạn tâm trạng", syn: "Mental health issue" },
+            { word: "Document", pos: "v", meaning: "Ghi nhận, dẫn chứng", syn: "Record, register" },
+            { word: "Suppress", pos: "v", meaning: "Kìm hãm, nén lại", syn: "Restrain, stifle" },
+            { word: "Estimate", pos: "v", meaning: "Ước tính", syn: "Calculate, gauge" },
+            { word: "Detect", pos: "v", meaning: "Phát hiện, nhận ra", syn: "Identify, discover" },
+            { word: "Circadian rhythm", pos: "np", meaning: "Nhịp sinh học", syn: "Daily body clock" },
+            { word: "Dusk", pos: "n", meaning: "Chạng vạng, hoàng hôn", syn: "Sunset, twilight" },
+            { word: "Sunset", pos: "n", meaning: "Mặt trời lặn", syn: "Dusk" },
+            { word: "Sunrise", pos: "n", meaning: "Mặt trời mọc", syn: "Dawn" },
+            { word: "Investigate", pos: "v", meaning: "Điều tra, nghiên cứu", syn: "Examine, explore" },
+            { word: "Significance", pos: "n", meaning: "Tầm quan trọng", syn: "Importance, consequence" },
+            { word: "Cooling trend", pos: "np", meaning: "Xu hướng làm mát", syn: "Temperature drop" },
+            { word: "Warming trend", pos: "np", meaning: "Xu hướng ấm lên", syn: "Temperature rise" },
+            { word: "Sleeplessness", pos: "n", meaning: "Chứng mất ngủ", syn: "Insomnia" },
+            { word: "Interpreter", pos: "n", meaning: "Phiên dịch viên", syn: "Translator" },
+            { word: "Mimic", pos: "v", meaning: "Mô phỏng, bắt chước", syn: "Imitate, simulate" },
+            { word: "Disorder", pos: "n", meaning: "Rối loạn", syn: "Ailment, dysfunction" },
+            { word: "Physical fitness", pos: "np", meaning: "Thể lực, độ sung sức", syn: "Health, condition" },
+            { word: "Critical", pos: "adj", meaning: "Quan trọng, then chốt", syn: "Crucial, vital" },
+            { word: "Industrialized", pos: "adj", meaning: "Công nghiệp hóa", syn: "Modern, developed" },
+            { word: "Tribespeople", pos: "n", meaning: "Người bộ lạc", syn: "Indigenous inhabitants" },
+            { word: "Subject", pos: "n", meaning: "Đối tượng nghiên cứu", syn: "Participant" },
+            { word: "Phenomenon", pos: "n", meaning: "Hiện tượng", syn: "Occurrence" },
+            { word: "Conduct", pos: "v", meaning: "Tiến hành (nghiên cứu)", syn: "Carry out, perform" },
+            { word: "Pattern", pos: "n", meaning: "Mô hình, thói quen", syn: "Trend, routine" },
+            { word: "Habit", pos: "n", meaning: "Thói quen", syn: "Routine, behavior" },
+            { word: "Data", pos: "n", meaning: "Dữ liệu", syn: "Information, statistics" },
+            { word: "Population", pos: "n", meaning: "Dân số, cộng đồng", syn: "Inhabitants, citizens" },
+            { word: "Environmental", pos: "adj", meaning: "Thuộc môi trường", syn: "Surrounding conditions" },
+            { word: "Cultural", pos: "adj", meaning: "Thuộc văn hóa", syn: "Societal norms" },
+            { word: "Tendency", pos: "n", meaning: "Xu hướng", syn: "Inclination, propensity" },
+            { word: "Severe", pos: "adj", meaning: "Nghiêm trọng", syn: "Serious, acute" },
+            { word: "Consequence", pos: "n", meaning: "Hậu quả", syn: "Outcome, result" },
+            { word: "Implication", pos: "n", meaning: "Hệ quả, ngụ ý", syn: "Inference, suggestion" },
+            { word: "Biological", pos: "adj", meaning: "Thuộc sinh học", syn: "Organic, physical" },
+            { word: "Correlation", pos: "n", meaning: "Mối tương quan", syn: "Connection, link" },
+            { word: "Vigorous", pos: "adj", meaning: "Mạnh mẽ, dồi dào", syn: "Energetic, robust" },
+            { word: "Substantial", pos: "adj", meaning: "Đáng kể", syn: "Significant, considerable" }
+        ];
+
+        /* ==========================================================================
+           2. WEB AUDIO API SOUND EFFECTS
+           ========================================================================== */
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playDingSound() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+            osc.frequency.exponentialRampToValueAtTime(1046.50, audioCtx.currentTime + 0.3); // C6
+            gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.3);
+        }
+
+        function playWrongSound() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
+            osc.frequency.exponentialRampToValueAtTime(110, audioCtx.currentTime + 0.4); // A2
+            gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.4);
+        }
+
+        /* ==========================================================================
+           3. TIMER LOGIC
+           ========================================================================== */
+        let timerSeconds = 20 * 60; // 20 minutes
+        let timerInterval = null;
+        let isTimerRunning = false;
+
+        function updateTimerDisplays() {
+            const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+            const s = (timerSeconds % 60).toString().padStart(2, '0');
+            const timeStr = `${m}:${s}`;
+            document.getElementById('timer-display').innerText = timeStr;
+            document.getElementById('timer-display-mobile').innerText = timeStr;
+        }
+
+        function toggleTimer() {
+            if (isTimerRunning) {
+                // Pause
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                document.getElementById('timer-icon').className = 'fa-solid fa-play mr-1';
+                document.getElementById('timer-text').innerText = 'TIẾP TỤC';
+            } else {
+                // Start / Resume
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                isTimerRunning = true;
+                document.getElementById('timer-icon').className = 'fa-solid fa-pause mr-1';
+                document.getElementById('timer-text').innerText = 'TẠM DỪNG';
+                
+                timerInterval = setInterval(() => {
+                    if (timerSeconds > 0) {
+                        timerSeconds--;
+                        updateTimerDisplays();
+                    } else {
+                        clearInterval(timerInterval);
+                        isTimerRunning = false;
+                        alert("⏰ Đã hết giờ làm bài, vui lòng nộp bài nhé!");
+                        disableInputs();
+                        submitTest();
+                    }
+                }, 1000);
+            }
+        }
+
+        function disableInputs() {
+            for (let i = 1; i <= 13; i++) {
+                const el = document.getElementById(`q${i}-input`);
+                if (el) el.disabled = true;
+            }
+        }
+
+        /* ==========================================================================
+           4. TRANSLATION & LOCATE EVIDENCE
+           ========================================================================== */
+        function toggleTranslation(transId) {
+            const el = document.getElementById(transId);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        function locateEvidence(paraId, questionNum) {
+            const paraEl = document.getElementById(paraId);
+            const qData = questionsData[questionNum];
+            if (!paraEl || !qData) return;
+
+            // Scroll left panel smoothly to element
+            paraEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Apply flash effect
+            paraEl.classList.remove('evidence-flash');
+            void paraEl.offsetWidth; // Trigger reflow
+            paraEl.classList.add('evidence-flash');
+        }
+
+        /* ==========================================================================
+           5. HIGHLIGHT SELECTION FEATURE
+           ========================================================================== */
+        document.addEventListener('mouseup', handleTextSelection);
+
+        function handleTextSelection() {
+            const selection = window.getSelection();
+            if (!selection || selection.isCollapsed || selection.toString().trim() === '') return;
+
+            const range = selection.getRangeAt(0);
+            const container = range.commonAncestorContainer;
+
+            // Ensure selection is inside passage or questions
+            const leftPanel = document.getElementById('left-panel');
+            const rightPanel = document.getElementById('right-panel');
+            
+            if (leftPanel.contains(container) || rightPanel.contains(container)) {
+                try {
+                    const span = document.createElement('span');
+                    span.className = 'user-highlight';
+                    range.surroundContents(span);
+                    selection.removeAllRanges();
+                } catch (e) {
+                    // Ignore complex HTML range selection wraps
+                }
+            }
+        }
+
+        /* ==========================================================================
+           6. CHECK SINGLE QUESTION & EXPLANATION BUILDER
+           ========================================================================== */
+        function checkSingleQuestion(qNum) {
+            const qData = questionsData[qNum];
+            const inputEl = document.getElementById(`q${qNum}-input`);
+            const expEl = document.getElementById(`exp-q${qNum}`);
+            const cardEl = document.getElementById(`card-q${qNum}`);
+            
+            if (!inputEl) return;
+
+            const userVal = inputEl.value.trim().toUpperCase();
+            if (!userVal) {
+                alert(`Vui lòng chọn hoặc nhập câu trả lời cho câu ${qNum}!`);
+                return;
+            }
+
+            let isCorrect = false;
+            if (Array.isArray(qData.correct)) {
+                isCorrect = qData.correct.includes(userVal);
+            } else {
+                isCorrect = (userVal === qData.correct);
+            }
+
+            // Play SFX
+            if (isCorrect) {
+                playDingSound();
+                confetti({ particleCount: 25, spread: 60, origin: { y: 0.7 } });
+                cardEl.className = "q-card p-4 rounded-xl border-2 border-emerald-400 bg-emerald-50/50 space-y-3 transition";
+            } else {
+                playWrongSound();
+                cardEl.className = "q-card p-4 rounded-xl border-2 border-rose-300 bg-rose-50/50 space-y-3 transition";
+            }
+
+            // Build 4-part Explanation
+            const displayAns = Array.isArray(qData.correct) ? qData.correct.join(" / ") : qData.correct;
+            
+            expEl.innerHTML = `
+                <div class="space-y-1.5 font-sans">
+                    <div class="flex items-center justify-between">
+                        <span class="font-black text-xs uppercase px-2 py-0.5 rounded ${isCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}">
+                            1. ĐÁP ÁN: ${displayAns}
+                        </span>
+                        <button onclick="locateEvidence('${qData.paraId}', ${qNum})" class="text-xs text-indigo-600 hover:text-indigo-800 font-bold flex items-center gap-1 bg-indigo-50 hover:bg-indigo-100 px-2 py-1 rounded transition">
+                            <i class="fa-solid fa-location-crosshairs"></i> Vị trí dẫn chứng
+                        </button>
+                    </div>
+                    <p class="text-slate-700"><strong>2. ĐOẠN CHỨA ĐÁP ÁN:</strong> <span class="italic text-slate-800 bg-yellow-100 px-1 rounded">"${qData.evidence}"</span></p>
+                    <p class="text-slate-600"><strong>3. DỊCH NGHĨA:</strong> ${qData.trans}</p>
+                    <p class="text-indigo-700"><strong>4. CỤM TỪ ĐỒNG NGHĨA:</strong> <code class="bg-indigo-50 px-1.5 py-0.5 rounded text-[11px] font-mono">${qData.synonyms}</code></p>
+                </div>
+            `;
+            expEl.classList.remove('hidden');
+
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            let answered = 0;
+            for (let i = 1; i <= 13; i++) {
+                const val = document.getElementById(`q${i}-input`).value.trim();
+                if (val !== "") answered++;
+            }
+            const pct = Math.round((answered / 13) * 100);
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        /* ==========================================================================
+           7. SUBMIT TEST & SCORE CONVERSION
+           ========================================================================== */
+        function calculateBandScore(score) {
+            if (score === 13) return "4.5+";
+            if (score >= 10) return "4.0";
+            if (score >= 7) return "3.5";
+            if (score >= 5) return "3.0";
+            if (score >= 3) return "2.5";
+            return "2.0";
+        }
+
+        function getTeacherFeedback(score) {
+            if (score === 13) return "🎉 XUẤT SẮC TUYỆT ĐỐI! Bạn có tư duy IELTS Reading vô cùng sắc bén và vốn từ vựng cực kỳ vững chắc!";
+            if (score >= 10) return "🌟 LÀM RẤT TỐT! Bạn đã nắm chắc hầu hết các câu hỏi. Hãy rà soát kĩ các bẫy True/False/Not Given nhé!";
+            if (score >= 7) me = "👍 KẾT QUẢ KHÁ TỐT! Cố gắng trau dồi thêm bảng từ vựng Glossary phía dưới để tăng tốc độ làm bài.";
+            if (score >= 4) return "💪 CỐ GẮNG LÊN NHÉ! Đọc kỹ phần giải thích chi tiết 4 bước dưới từng câu để rút kinh nghiệm nhé!";
+            return "🌱 ĐỪNG NẢN LÒNG! Hãy ôn tập kĩ bảng từ vựng và làm lại bài thi một lần nữa nhé!";
+        }
+
+        function submitTest() {
+            let correctCount = 0;
+
+            for (let i = 1; i <= 13; i++) {
+                checkSingleQuestion(i);
+                const qData = questionsData[i];
+                const userVal = document.getElementById(`q${i}-input`).value.trim().toUpperCase();
+                
+                if (Array.isArray(qData.correct)) {
+                    if (qData.correct.includes(userVal)) correctCount++;
+                } else {
+                    if (userVal === qData.correct) correctCount++;
+                }
+            }
+
+            // Calculate score & band
+            const band = calculateBandScore(correctCount);
+            const feedback = getTeacherFeedback(correctCount);
+
+            document.getElementById('modal-score-text').innerText = `${correctCount} / 13`;
+            document.getElementById('modal-band-text').innerText = band;
+            document.getElementById('modal-feedback').innerText = feedback;
+
+            // Display Modal
+            document.getElementById('score-modal').classList.remove('hidden');
+
+            if (correctCount >= 9) {
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('score-modal').classList.add('hidden');
+        }
+
+        /* ==========================================================================
+           8. INIT GLOSSARY TABLE
+           ========================================================================== */
+        function initGlossary() {
+            const tbody = document.getElementById('glossary-tbody');
+            tbody.innerHTML = glossaryData.map(item => `
+                <tr class="hover:bg-slate-50 border-b border-slate-100 transition">
+                    <td class="px-3 py-2 font-bold text-indigo-700">${item.word}</td>
+                    <td class="px-2 py-2 text-slate-400 italic">${item.pos}</td>
+                    <td class="px-3 py-2 text-slate-800">${item.meaning}</td>
+                    <td class="px-3 py-2 text-emerald-600 font-medium">${item.syn}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            initGlossary();
+            updateTimerDisplays();
+        };
+    </script>
+</body>
+</html>
